@@ -76,3 +76,15 @@ all kinds: `banned_architect_quote` fails on Hohpe/O'Reilly/Fowler/Uncle Bob say
 all kinds: `banned_microservices_monolith` fails on "microservices vs monolith"
 
 A failed or non-JSON model call records one failed `model_error` check instead of crashing the run.
+
+## Kata quality judge
+
+`kata_judge.py` scores architecture quality, not protocol compliance: ten criteria 0-5 (load-bearing
+decision, use of the brief, options, stressors, coupling, prices, flips, owner questions, invented
+facts, clichés) plus a strongest line and a weakest move. An LLM judges, so scores are repeatable.
+
+    python3 evals/run.py --cases evals/katas.json --arm skill
+    python3 evals/kata_judge.py --results evals/results/<file>.json --judge-model ollama/<name>
+
+`ollama/<name>` uses Ollama; any other model runs the `pi` CLI headless. Writes
+`evals/results/<ts>-kata-judge.json` and `<ts>-kata-scorecard.md`, and prints the scorecard.

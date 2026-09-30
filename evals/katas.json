@@ -1,0 +1,44 @@
+[
+  {
+    "id": "kata-goinggoinggone",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Going...Going...Gone!\n\nAn auction company wants to take their auctions online to a nationwide scale--customers choose the auction to participate in, wait until the auction begins, then bid as if they were there in the room, with the auctioneer\n\nUsers: scale up to hundreds of participants (per auction), potentially up to thousands of participants, and as many simultaneous auctions as possible\n\nRequirements:\n- auctions must be categorized and 'discoverable'\n- auctions must be as real-time as possible\n- auctions must be mixed live and online\n- video stream of the action after the fact\n- handle money exchange\n- participants must be tracked via a reputation index\n\nAdditional context:\n- auction company is expanding aggressively by merging with smaller competitors\n- if nationwide auction is a success, replicate the model overseas\n- budget is not constrained--this is a strategic direction\n- company just exited a lawsuit where they settled a suit alleging fraud",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Going...Going...Gone!. Source: https://nealford.com/katas/kata?id=GoingGoingGone"
+  },
+  {
+    "id": "kata-sysopsquad",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Sysop Squad\n\nAn electronics giant needs a new trouble-ticket system for their customer-facing IT consultants (the Sysop Squad) in their stores nationwide\n\nUsers: thousands of customers, hundreds of consultants, hundreds of store staff\n\nRequirements:\n- trouble tickets can be entered by either call-center receptionists, store staff, or customers online\n- tickets route to the appropriate consultant based on location, availability and skill\n- consultants should only need a mobile device\n- customers enter consultant evaluation after service\n- consultant tracks work performed in customer record(s) for future reference\n\nAdditional context:\n- uptime is critical to the company's reputation\n- the site's performance must degrade gracefully under heavy load\n- good routing of requests is critical to making a profit",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Sysop Squad. Source: https://nealford.com/katas/kata?id=SysopSquad"
+  },
+  {
+    "id": "kata-makethegrade",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Make the Grade\n\nA very large and populous state would like a new system to support standardized testing across all public school systems grades 3-12.\n\nUsers: 40,000+ students, 2000 graders, 50 administrators.\n\nRequirements:\n- Students will only be able to use the application within testing centers around the state, most of these will be in the schools, but not all of them\n- Students should be able to take a test, and the results eventually consolidated to a single location representing all of the test scores across the state (by school, teacher, and student).\n- Tests will be multiple choice, short answer, and essay.\n- The system should have a reporting system to know which students have taken the tests and what score they received.\n- Short answer and essay questions will be manually graded by teachers, who will then add the essay grades to the system.\n\nAdditional context:\n- A change approval processes involving three different government agencies is required for changes to the way student grades are kept to ensure security.\n- The state does not own its hosting center, but outsources it to a third party.\n- Project must defend its budget each fiscal year.",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Make the Grade. Source: https://nealford.com/katas/kata?id=MakeTheGrade"
+  },
+  {
+    "id": "kata-girdthegrid",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Gird the Grid\n\nA company who builds management software for electrical grids needs to update their outdated software solution, and plan to sell their offering as a platform.\n\nUsers: small to medium size market electic market companies, able to accommodate electrical grids from 100,000-1,900,000 electrical customers\n\nRequirements:\n- configurable for specific grid company characteristics (state, tax rates, etc.)\n- state-of-the-art user experience\n- dashboards with analytics reports with near-real time data from the grid\n- excellent reporting capabilities\n- sophisticated analytics-based engine to determine best throughput/money\n- administer through either desktop or mobile devices\n- security penetration attempt reporting\n\nAdditional context:\n- Four nines (99.99) reliability\n- turn-key deployment on remote sites\n- security is a first-class concern\n- company wants to shift from managing electrical grids to becoming a software reseller",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Gird the Grid. Source: https://nealford.com/katas/kata?id=GirdTheGrid"
+  },
+  {
+    "id": "kata-amisick",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Am.I.Sck\n\nYour company wants to build a software system supporting chat nurses (advice nurse) answering questions from customers about potential health problems.\n\nUsers: 250+ nurses worldwide, hundreds to thousands of customers\n\nRequirements:\n- access patient medical histories\n- provide an service-level agreement on turnaround time for interaction\n- assist nurses in providing medical diagnosis\n- support nurses geographically divergent from clients\n- enable client customers to reach local medical staff (if necessary), contacting the local medical staff directly ahead of time (if necessary)\n- eventually enable parts of the system for direct client customer use\n\nAdditional context:\n- company is building software solutions in niche spaces like this one\n- agressive growth with 2nd round VC funding\n- fast time to market is overall company goal to capture market\n- our lawyers have determined that the conversation is not considered a medical record",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Am.I.Sck. Source: https://nealford.com/katas/kata?id=AmISick"
+  },
+  {
+    "id": "kata-wheresfluffy",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "This is an architectural kata, a client brief with no single decision named. Work it with turtleneck at full level.\n\n# Where's Fluffymon?\n\nA service describing missing pets, pet rewards (brokered/managed by the service), and location data points (GPS) of pet sightings using augmented reality to overlay last-seen pet locations\n\nUsers: dozens of missing pet owners, hundreds of 'spotters' (initially), broader depending on rollout success\n\nRequirements:\n- users interested in finding pets register on the site\n- anyone can see a list of pets missing near to their location\n- pet finders can post 'pet found' messages (with mandatory photo proof) and collect rewards on confirmation from pet owners\n- users can comment on pet missing entries, offering data points (sighted, area checked with no results, etc)\n- mobile device accessibility\n\nAdditional context:\n- one of a host of AR services being launched by parent company\n- local scalability (per-city), but possibly scaling out to other cities\n- company wants to create a larger social community around pets\n- potential ad revenue from partners like pet stores have the potential to make millions",
+    "notes": "Architectural kata by Neal Ford / Ted Neward: Where's Fluffymon?. Source: https://nealford.com/katas/kata?id=WheresFluffy"
+  }
+]

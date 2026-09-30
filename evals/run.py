@@ -327,7 +327,9 @@ def write_results(arm: str, entries: list[dict], systems: dict[str, str], args: 
         "system_prompts": {key: systems[key] for key in used},
         "cases": entries,
     }
-    path = RESULTS / f"{timestamp}-{arm}.json"
+    stem = Path(args.cases).stem
+    prefix = "" if stem == "cases" else f"{stem}-"
+    path = RESULTS / f"{timestamp}-{prefix}{arm}.json"
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return path
 
@@ -340,12 +342,13 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--concurrency", type=int, default=2)
     parser.add_argument("--judge", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--cases", default=str(EVALS / "cases.json"), help="case file; results are prefixed with its stem when it is not cases.json")
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    all_cases = checks.load_cases(EVALS / "cases.json")
+    all_cases = checks.load_cases(Path(args.cases))
     cases = all_cases
     if args.only:
         wanted = {item.strip() for item in args.only.split(",") if item.strip()}
