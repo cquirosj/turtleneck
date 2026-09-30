@@ -1,0 +1,29 @@
+{
+  "name": "turtleneck",
+  "version": "0.1.0",
+  "description": "Architecture trade-off mode. Opens the solution space, stresses every option, prices what each costs and keeps open, and hands back the decisions only the owner can make.",
+  "author": {
+    "name": "Daniel Marbach",
+    "url": "https://github.com/danielmarbach"
+  },
+  "homepage": "https://github.com/danielmarbach/turtleneck",
+  "repository": "https://github.com/danielmarbach/turtleneck",
+  "license": "MIT",
+  "keywords": ["architecture", "trade-offs", "decision-records", "residuality"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Turtleneck",
+    "shortDescription": "Architecture trade-off mode",
+    "longDescription": "Forces real trade-off work on architecture decisions: options that differ in kind, random stressors, priced options, flip conditions, and the questions only the owner can answer.",
+    "developerName": "Daniel Marbach",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://github.com/danielmarbach/turtleneck",
+    "defaultPrompt": [
+      "Run turtleneck on this decision.",
+      "Review this ADR for skipped trade-off work.",
+      "Stress this design and find the hidden coupling."
+    ],
+    "brandColor": "#161616"
+  }
+}

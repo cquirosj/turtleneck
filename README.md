@@ -86,14 +86,28 @@ several teams will live behind.
 /plugin install turtleneck@turtleneck
 ```
 
+**Codex**
+
+```
+codex plugin marketplace add danielmarbach/turtleneck
+codex plugin add turtleneck@turtleneck
+```
+
+Skills are invoked with `@`: `@turtleneck`, `@turtleneck-review`,
+`@turtleneck-stress`.
+
+**pi**
+
+```
+pi install git:github.com/danielmarbach/turtleneck
+```
+
 **Any host that reads `AGENTS.md`**
 
 Copy `AGENTS.md` into your project root or `~/.config/<host>/AGENTS.md`. The
 always-on ruleset works without the commands.
 
-**pi**
-
-Symlink or copy the `skills/` folders into your pi skills directory.
+All adapters point at the same `skills/` folder. No hooks, no extension code.
 
 ## The two lenses
 

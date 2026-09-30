@@ -1,0 +1,21 @@
+{
+  "name": "turtleneck",
+  "interface": {
+    "displayName": "Turtleneck"
+  },
+  "plugins": [
+    {
+      "name": "turtleneck",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/danielmarbach/turtleneck.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
