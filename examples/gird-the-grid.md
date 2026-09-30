@@ -4,7 +4,7 @@ An architectural kata by Neal Ford and Ted Neward, worked with the turtleneck
 skill at full level. Unedited model output.
 
 - Model: `deepseek-v4.1-flash:cloud`, temperature 0
-- Skill commit: `46dd375`
+- Skill commit: `4e08ce6` (the skill text as committed there; the record was generated from that text just before the commit)
 - Judge: `claude-bridge/claude-sonnet-5`, 47/50 on the kata quality rubric
 - Strongest line per the judge: The coupling is operational data to the tenant boundary, not to the application.
 - Weakest move per the judge: Four-nines reliability is an explicit brief requirement with direct tenancy implications (blast radius, per-instance vs shared failure domains) yet it's never analyzed or priced -- it rides along inside 'blast radius' stressors instead of being treated as its own driver.

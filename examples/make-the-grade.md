@@ -4,7 +4,7 @@ An architectural kata by Neal Ford and Ted Neward, worked with the turtleneck
 skill at full level. Unedited model output.
 
 - Model: `deepseek-v4.1-flash:cloud`, temperature 0
-- Skill commit: `46dd375`
+- Skill commit: `4e08ce6` (the skill text as committed there; the record was generated from that text just before the commit)
 - Judge: `claude-bridge/claude-sonnet-5`, 48/50 on the kata quality rubric
 - Strongest line per the judge: Stressors 3 and 12 both break the word 'frozen': the core must be frozen in shape (append-only, versioned), not in content.
 - Weakest move per the judge: The brief's explicit reporting-by-school/teacher/student requirement is acknowledged once in the engine room and then dropped — no stressor or price line tests whether the chosen boundary actually supports that reporting granularity.
