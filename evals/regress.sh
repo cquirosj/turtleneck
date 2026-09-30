@@ -6,7 +6,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 MODEL="${MODEL:-deepseek-v4.1-flash:cloud}"
-JUDGE_MODEL="${JUDGE_MODEL:-claude-bridge/claude-sonnet-5}"
+JUDGE_MODEL="${JUDGE_MODEL:-claude-bridge/claude-opus-5-5}"
 
 python3 -m unittest discover -s evals -p "test_*.py" >/dev/null
 previous=$(git ls-files 'evals/results/*-kata-scorecard.md' | sort | tail -1)

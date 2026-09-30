@@ -86,8 +86,12 @@ skill as it is on disk, judges them, and prints the mean next to the last
 committed scorecard. Commit the new `*-kata-scorecard.md` with the skill change.
 Keep the same judge model across runs; scores from different judges are not
 comparable. Each judge file records the skill's content hash and git commit.
-Trend so far with `claude-bridge/claude-sonnet-5` judging `deepseek-v4.1-flash:cloud`:
-45.3, 46.5, 46.8 out of 50.
+The judge must not grade its own generations; an opus judge scored opus
+records 6+ points above everyone else's, so keep generator and judge
+different models. Closed series, sonnet-5 judging deepseek: 45.3, 46.5, 46.8
+out of 50. Current series, opus-5-5 judging deepseek: 37.0 out of 50 is the
+baseline. The opus judge is harsher, so the absolute numbers dropped without
+the skill changing.
 
 ## Kata quality judge
 

@@ -12,6 +12,14 @@
 Makes your AI agent think like the architect everyone rolls their eyes at,
 until they're right.
 
+Concretely: turtleneck is an agent skill for architecture decisions. When
+you ask "should we use X or Y", it stops the model from answering with
+confident prose and forces trade-off work instead: options that actually
+differ, random stressors including absurd ones, prices with an owner, the
+accepted trade-off stated as a loss, and the questions only you can answer.
+The output is a one-page decision record, sized to how expensive the
+decision is to undo.
+
 [Ponytail](https://github.com/DietrichGebert/ponytail) makes the agent write less code. Turtleneck makes it stop before
 the decisions that ponytail tells you not to make lightly: where the
 boundary goes, what the system is coupled to, which future you are closing

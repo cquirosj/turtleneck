@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import checks
+import kata_judge
 
 EVALS = Path(__file__).resolve().parent
 ROOT = EVALS.parent
@@ -84,6 +85,18 @@ def system_for(case: checks.Case, arm: str, systems: dict[str, str]) -> tuple[st
 
 
 def call_model(model: str, system: str, user: str, timeout: int = HTTP_TIMEOUT) -> tuple[str, str | None, bool]:
+    # "ollama/<name>" and bare names hit the local Ollama API; any other
+    # "provider/id" runs through the pi CLI, same routing as kata_judge.
+    if model.startswith("ollama/"):
+        model = model[len("ollama/"):]
+    elif "/" in model:
+        content, error = kata_judge.call_pi(model, system, user)
+        if error is None:
+            return content, None, False
+        time.sleep(5)
+        content, error = kata_judge.call_pi(model, system, user)
+        return content, error, True
+
     def attempt() -> tuple[str, str | None, bool]:
         payload = {
             "model": model,
