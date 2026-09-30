@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "turtleneck",
+  "description": "Architecture trade-off mode for AI agents. The architect everyone rolls their eyes at, until they're right.",
+  "owner": {
+    "name": "Daniel Marbach",
+    "url": "https://github.com/danielmarbach"
+  },
+  "plugins": [
+    {
+      "name": "turtleneck",
+      "description": "Forces real trade-off work on architecture decisions: options, stressors, prices, flip conditions, owner decisions.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

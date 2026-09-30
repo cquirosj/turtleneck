@@ -1,0 +1,9 @@
+{
+  "name": "turtleneck",
+  "version": "0.1.0",
+  "description": "Architecture trade-off mode. Opens the solution space, stresses every option, prices what each costs and keeps open, and hands back the decisions only the owner can make.",
+  "author": {
+    "name": "Daniel Marbach",
+    "url": "https://github.com/danielmarbach"
+  }
+}

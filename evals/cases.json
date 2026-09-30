@@ -1,0 +1,116 @@
+[
+  {
+    "id": "decide-full-notifications-queue",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "Should we send order confirmation emails through a queue instead of calling the email provider synchronously from checkout? Give me a full decision record.",
+    "notes": "Core decide/full case. Passing fixture is modeled on the worked example in record.md."
+  },
+  {
+    "id": "decide-full-split-order-service",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "Should we split the order service out of our monolith? Give me a full decision record.",
+    "notes": "Same kind as the passing fixture; the .fail.md fixture attaches here and fails named checks."
+  },
+  {
+    "id": "decide-full-postgres-vs-dynamodb",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "We are building a new billing module. Should it store its data in Postgres or DynamoDB? Give me a full decision record.",
+    "notes": "Database choice with an operational-ownership axis."
+  },
+  {
+    "id": "decide-full-tenant-database",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "For our multi-tenant SaaS, should each tenant get its own database or should all tenants share one schema? Give me a full decision record.",
+    "notes": "Data ownership and blast radius are the real decision."
+  },
+  {
+    "id": "decide-full-build-vs-buy-flags",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "Should we build our own feature flag service or buy one? Give me a full decision record.",
+    "notes": "Build vs buy; 'buy or reuse' must be a real option."
+  },
+  {
+    "id": "decide-napkin-cache-layer",
+    "kind": "decide",
+    "level": "napkin",
+    "prompt": "Should we put a Redis cache in front of the product catalog reads? Answer at napkin level.",
+    "notes": "Ten lines max, no table."
+  },
+  {
+    "id": "decide-napkin-session-store",
+    "kind": "decide",
+    "level": "napkin",
+    "prompt": "Should we move session state out of in-process memory into a shared store? Answer at napkin level.",
+    "notes": "Second napkin case."
+  },
+  {
+    "id": "decide-deep-multi-region",
+    "kind": "decide",
+    "level": "deep",
+    "prompt": "Should we go multi-region active-active for the whole platform, or keep a single primary region with a warm standby? Answer at deep level.",
+    "notes": "Needs 20+ stressors plus incidence and contagion."
+  },
+  {
+    "id": "gate-loop-vs-linq",
+    "kind": "gate",
+    "level": null,
+    "prompt": "In C#, for a method that sums a list of ints, should I use a for loop or LINQ?",
+    "notes": "Not architecture: local code choice."
+  },
+  {
+    "id": "gate-json-library",
+    "kind": "gate",
+    "level": null,
+    "prompt": "Which JSON library should I use for the single serialization call in my config loader, System.Text.Json or Newtonsoft.Json?",
+    "notes": "Not architecture: one library for one call."
+  },
+  {
+    "id": "gate-rename-method",
+    "kind": "gate",
+    "level": null,
+    "prompt": "Should I rename the private method ProcessData to TransformRecords? It is used in two places.",
+    "notes": "Not architecture: naming."
+  },
+  {
+    "id": "decided-postgres-reporting",
+    "kind": "decided",
+    "level": null,
+    "prompt": "We have already decided to use Postgres for the reporting store, that's final. Write it up.",
+    "notes": "User decided; record options considered: one and the accepted trade-off."
+  },
+  {
+    "id": "review-kafka-industry-standard",
+    "kind": "review",
+    "level": null,
+    "prompt": "Review this ADR for decision quality only. Do not rewrite it.\n\n# ADR-014: Use Kafka for the event backbone\n\n## Context\nWe need to move events between the billing, fulfillment, and analytics services. We evaluated the options and decided to use Kafka.\n\n## Decision\nWe will use Kafka as the event backbone because it is the industry standard for event streaming and scales horizontally.\n\n## Alternatives considered\n- RabbitMQ: considered, rejected.\n- Direct HTTP calls: considered, rejected.\n\n## Trade-offs\n| Dimension | Rating |\n|-----------|--------|\n| Scalability | High |\n| Maintainability | Medium |\n| Performance | High |\n| Reliability | Medium |\n\n## Consequences\nAll services will publish and consume via Kafka. The platform team will operate the cluster for everyone.\n",
+    "expected_tags": [
+      "justified-after",
+      "cliché",
+      "unstressed"
+    ],
+    "notes": "Flawed ADR: industry-standard rationale, ratings table, no real alternatives. Passing review fixture attaches here."
+  },
+  {
+    "id": "review-retention-no-flip",
+    "kind": "review",
+    "level": null,
+    "prompt": "Review this ADR for decision quality only. Do not rewrite it.\n\n# ADR-021: Queue order confirmations instead of sending inline\n\n## Context\nCheckout currently calls the email provider inline. Provider incidents have failed checkout twice this quarter.\n\n## Options\nA. Publish an event and send from a worker (days to build, one more consumer to run).\nB. Keep the inline call with a 2s timeout and background retry (hours, no new system).\nC. Defer: add a circuit breaker now, revisit if incidents keep happening.\n\n## Stressors\n| # | Stressor | A | B | C |\n|---|----------|---|---|---|\n| 1 | Provider down 6h | survives | retries pile up | breaker trips |\n| 2 | Volume 10x | survives | thread pool starves | survives |\n| 3 | Confirmations must be reversible by a human | needs audit store | needs audit store | needs audit store |\n| 4 | Provider changes API | consumer only | checkout changes | checkout changes |\n| 5 | Absurd: system runs offline a week | queue fills | fails | fails |\n\n## Price\n| Option | Build | Run, who pays | Undo | Keeps open |\n|--------|-------|---------------|------|------------|\n| A | days | worker, ops | medium | more consumers |\n| B | hours | nothing new | cheap | nothing |\n| C | hours | nothing new | cheap | the decision |\n\n## Decision\nA. Publish an event. We give up sub-second delivery to keep checkout independent of the mail provider.\n\n## Consequences\nConfirmations may arrive minutes late. Legal requires confirmations to be retained for seven years.\n",
+    "expected_tags": [
+      "no-flip",
+      "unowned"
+    ],
+    "notes": "Decent ADR with no flip conditions and an unsourced regulatory assertion."
+  },
+  {
+    "id": "stress-order-pipeline",
+    "kind": "stress",
+    "level": null,
+    "prompt": "Stress this design: an online store with five components - the web storefront, the order service, a Postgres database, a Stripe payment integration, and a background email worker. Find the hidden coupling and where a boundary wants to be.",
+    "notes": "Stress-only case; no recommendation allowed."
+  }
+]
