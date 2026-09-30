@@ -188,7 +188,24 @@ python3 -m unittest discover -s evals -p "test_*.py"
 python3 evals/run.py --arm both --concurrency 3 --judge
 ```
 
+A second suite runs six of the Ford and Neward
+[architectural katas](https://nealford.com/katas/list.html) and has a
+stronger model score each record for architecture quality: did it pick the
+load-bearing decision, use the brief, find a non-obvious coupling, price
+against the stated team and scale, invent nothing. The latest mean is
+46.8 out of 50. `./evals/regress.sh` reruns both steps after a skill change
+and prints the mean next to the last committed scorecard.
+
 Results land in `evals/results/`. See [evals/README.md](evals/README.md).
+
+## Examples
+
+Unedited records from the kata suite, with the judge's notes:
+
+- [Make the Grade](examples/make-the-grade.md), a statewide testing system
+  for 40,000 students.
+- [Gird the Grid](examples/gird-the-grid.md), market software for small
+  electric utilities with a four-nines requirement.
 
 ## Status
 

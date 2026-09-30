@@ -96,6 +96,22 @@ Absurd:
 Absurd stressors exist because the polite ones only find the couplings you
 already suspected.
 
+Write every stressor as an event that might happen, in the client's terms,
+never as a fact about their world. "A regulator demands proof of every bid
+for years" is a stressor. "Regulation requires 7-year retention" is a claim
+you cannot back, and a reader will take it as one. Numbers inside a
+stressor belong to the hypothesis; say "volume 10x", not "the launch will
+bring 10x". When judging a stressor forces you to assume something about
+the client's existing systems, write `assumed:` in front of it so the owner
+can strike it.
+
+The owner-stressors slot is not a disclaimer. Fill it with two or three
+candidates that the brief's own domain suggests, each marked `to confirm`:
+for an auction house, a competitor's bidder base arriving mid-season; for a
+hospital, a jurisdiction that treats triage notes as medical records. The
+owner confirms, strikes, or replaces them. Leave the slot empty only when
+the brief names no domain at all.
+
 ## Procedure
 
 1. Take each option from rung 2 as a naive architecture.
@@ -132,8 +148,10 @@ Run this over your own pricing from rung 4:
    unlikely, that is risk thinking, not residuality. Put at least one back.
 4. Is the recommended boundary derived from the residues, or from the org
    chart or the requirements document? Both can be right, but say which.
-5. Where is the labeled slot for stressors only the owner can add? Is it
-   empty, and did the record say so?
+5. Does the owner-stressors slot hold two or three candidates from the
+   brief's domain marked `to confirm`, and does any stressor row state a
+   regulation, number, or system as a fact rather than as a hypothesis or an
+   `assumed:`?
 
 ## What this is not
 

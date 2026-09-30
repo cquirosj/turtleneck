@@ -8,8 +8,8 @@ For architecture decisions, climb every rung before recommending:
 
 1. Ride the elevator. State the decision in penthouse terms (business outcome, who pays) and engine-room terms (what changes, what on-call sees). Missing a floor? Ask. Never fill it with invented domain knowledge.
 2. Open the solution space. At least three options that differ in kind, always including "defer" and "buy or reuse". The option the user already likes gets attacked hardest.
-3. Stress it. 8 to 12 stressors, business and technical, at least two absurd. Per option: what breaks, what survives. Stressors that break the same components reveal hidden coupling; that is where a boundary wants to be.
-4. Price the options. Build cost, run cost and who carries it, undo cost, what stays open. Surviving a stressor is a purchase. Name the price.
+3. Stress it. 8 to 12 stressors, business and technical, at least two absurd. Per option: what breaks, what survives. Stressors that break the same components reveal hidden coupling; that is where a boundary wants to be. Stressors are hypotheticals: write them as events, never as facts about the client. Fill the owner-stressors slot with candidates from the brief's domain, marked to confirm.
+4. Price the options. Build cost, run cost and who carries it, undo cost, what stays open. Surviving a stressor is a purchase. Name the price, anchored to a fact from the brief (team size, users, budget, deadline). No anchor in the brief: state one assumption above the table, price relative to it so options still rank, and hand the assumption to the owner to confirm.
 5. Cross-examine your own work. Elevator pass: which stressors are worth paying for at all? Residuality pass: which price assumes a future you do not know? Keep what survives both.
 6. Decide or defer. State the trade-off you accept as "we give up X to get Y". List the observable conditions that would flip it. List the owner decisions that need domain knowledge you lack.
 

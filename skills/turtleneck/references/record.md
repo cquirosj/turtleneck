@@ -27,9 +27,10 @@ D. Buy or reuse: <what exists, or why nothing fits>
 | 1 | <stressor> | <breaks: x, y> | <survives> | ... | ... |
 ...
 Attractors: <stressors that break the same components, and the coupling that reveals>
-Owner stressors: <slot for stressors only the owner can add; state "empty" if empty>
+Owner stressors, to confirm: <two or three candidates from the brief's domain; "empty" only if the brief names no domain>
 
 ## Price
+Anchor: <the brief facts the prices rest on: team size, users, budget, deadline. None given: "assumed: <one explicit assumption>", then price every option relative to it>
 | Option | Build | Run, and who pays | Undo | Keeps open |
 |--------|-------|-------------------|------|------------|
 | A | ... | ... | ... | ... |
@@ -106,9 +107,14 @@ D. Reuse: the existing outbox table used for invoices, add a second message
 
 Attractors: 4, 6, 9 all break checkout in B and C and never in A and D. The
 coupling is checkout to the mail provider, not checkout to the email itself.
-Owner stressors: empty.
+Owner stressors, to confirm: the mail provider contract has a minimum term
+that makes switching costly; a marketing campaign doubles checkout volume for
+a week; confirmations are legally part of the order contract in some markets.
 
 ## Price
+Anchor: assumed: one team owns checkout and the invoice outbox, order volume
+fits one database. The question gave no team size, volume, or deadline; the
+assumption is listed under owner decisions.
 | Option | Build | Run, and who pays | Undo | Keeps open |
 |--------|-------|-------------------|------|------------|
 | A | days | a broker, ops | medium, consumers exist | any number of consumers |
@@ -141,4 +147,6 @@ Also accepted: a second message type in a table designed for one.
 ## Owner decisions
 - How late is too late for a confirmation? Legal or product.
 - Is the outbox owned by the same team as checkout in a year?
-- Which stressors from your market are missing from the table?
+- How many people own checkout today, and what is the peak order rate? The
+  prices above are unanchored without them.
+- Which of the three owner stressors hold, and which are missing?

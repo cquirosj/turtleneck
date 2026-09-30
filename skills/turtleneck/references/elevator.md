@@ -47,6 +47,12 @@ For every option considered ask:
   scenario, the premium is waste.
 - How much does it cost to undo? Cheap undo means decide fast and move.
   Expensive undo means this is where the analysis budget goes.
+- What is the price anchored to? "Weeks" is a guess until it says "for
+  the team of four in the brief" or "at the 40,000 users stated". A brief
+  with no team size, budget, or volume gives you no anchor; state one
+  assumption above the table, price relative to it so the options still
+  rank, and ask the owner to confirm the assumption. A column of
+  `unanchored` is honest and useless.
 
 "Make it configurable" and "put an interface in front of it" are option
 purchases. Price them like one.
@@ -137,3 +143,6 @@ Run this over your own stressor table and pricing:
 4. For the recommended option: who is measured on the year in which it pays
    off?
 5. Can the accepted trade-off be said in one sentence a CFO would understand?
+6. Is the price table anchored to a fact from the brief, or to one stated
+   assumption that is listed under owner decisions? Do the options still
+   rank against each other?

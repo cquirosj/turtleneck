@@ -119,7 +119,7 @@ def stressor_rows(text: str) -> list[str]:
 
 def owner_decision_questions(text: str) -> list[str]:
     body = section_body(text, "Owner decisions")
-    return [line.strip() for line in body.splitlines() if line.strip().endswith("?")]
+    return [line.strip() for line in body.splitlines() if "?" in line]
 
 
 def _decide_headings(text: str) -> list[CheckResult]:
@@ -185,7 +185,7 @@ def _decide_tail(text: str) -> list[CheckResult]:
         _verdict(
             "owner_decision_question",
             bool(owner_decision_questions(text)),
-            "Owner decisions section has no line ending in ?",
+            "Owner decisions section has no line containing ?",
         ),
         _flips_if_bullet(text),
     ]

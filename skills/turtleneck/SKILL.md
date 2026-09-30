@@ -66,14 +66,30 @@ goes down, a schema must change, latency doubles. At least two absurd ones;
 the absurd ones find the couplings you would never list. For each option,
 write what breaks and what survives. Stressors that break the same set of
 components point at a hidden coupling, and that is where a boundary wants to
-be. No probabilities. Every stressor is treated as if it will happen. See
+be. No probabilities. Every stressor is treated as if it will happen.
+Stressors are hypotheticals, so write them as events that might happen,
+never as facts about the client's world: "a regulator demands deletion
+within a day", not "GDPR requires 24h deletion". A number inside a stressor
+is part of the hypothesis, not a finding. If you assume something about the
+client's system to judge a stressor, write `assumed:` in that cell. Then
+fill the owner-stressors slot with two or three candidates drawn from the
+brief's own domain, each marked `to confirm`. Leave it empty only when the
+brief names no domain at all. See
 [references/residuality.md](references/residuality.md).
 
 **4. Price the options.** Per option: cost to build, cost to run and who
 carries it, cost to undo, what it keeps open. Surviving a stressor is a
 purchase, not a default. Name the price rather than adding resilience
 everywhere. Spend the deep rungs on the expensive-to-undo options; a cheap
-undo needs less analysis, not more.
+undo needs less analysis, not more. Anchor every price to something the
+brief gives you: team size, user count, budget, deadline, systems already
+running. "Weeks" means nothing without "for the four-person team in the
+brief". When the brief gives no anchor, do not write `unanchored` in every
+cell; that is not a price. State one assumption once, above the table
+(`assumed: a team of four, one region`), price every option relative to it
+so the options still rank, and put the assumption in owner decisions to
+confirm. Flip conditions must not use numbers the record elsewhere admits
+it does not have.
 
 **5. Cross-examine.** Two labeled passes over your own rungs 3 and 4, in the
 same response.

@@ -46,7 +46,7 @@ decide/full+deep: `give_up_in_decision` "give up" in the Decision section
 decide/full+deep: `elevator_pass` the phrase "Elevator pass" appears
 decide/full+deep: `residuality_pass` the phrase "Residuality pass" appears
 decide/full+deep: `owner_stressors_present` the phrase "Owner stressors" appears
-decide/full+deep: `owner_decision_question` an Owner decisions line ends in "?"
+decide/full+deep: `owner_decision_question` an Owner decisions line contains "?"
 decide/deep: `incidence_word` "incidence" appears; `contagion_word` "contagion" appears
 decide/napkin: `napkin_line_limit` at most 12 non-empty lines
 decide/napkin: `give_up_present` "give up" appears
@@ -76,6 +76,18 @@ all kinds: `banned_architect_quote` fails on Hohpe/O'Reilly/Fowler/Uncle Bob say
 all kinds: `banned_microservices_monolith` fails on "microservices vs monolith"
 
 A failed or non-JSON model call records one failed `model_error` check instead of crashing the run.
+
+## Regression after a skill change
+
+    ./evals/regress.sh
+
+Runs the unit tests, regenerates the six kata records in `katas.json` with the
+skill as it is on disk, judges them, and prints the mean next to the last
+committed scorecard. Commit the new `*-kata-scorecard.md` with the skill change.
+Keep the same judge model across runs; scores from different judges are not
+comparable. Each judge file records the skill's content hash and git commit.
+Trend so far with `claude-bridge/claude-sonnet-5` judging `deepseek-v4.1-flash:cloud`:
+45.3, 46.5, 46.8 out of 50.
 
 ## Kata quality judge
 
