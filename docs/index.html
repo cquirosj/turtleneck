@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>turtleneck, architecture trade-off mode for your AI agent</title>
+<meta name="description" content="Makes your AI agent think like the architect everyone rolls their eyes at, until they're right. Options, stressors, prices, flip conditions, owner decisions.">
+<meta property="og:title" content="turtleneck">
+<meta property="og:description" content="Architecture trade-off mode for AI agents. The architect everyone rolls their eyes at, until they're right.">
+<meta property="og:image" content="https://danielmarbach.github.io/turtleneck/turtleneck.svg">
+<link rel="icon" type="image/svg+xml" href="turtleneck.svg">
+<style>
+:root {
+  --paper: #e9dcc9;
+  --ink: #161616;
+  --rib: #3a3a3a;
+  --hanger: #8b6b4a;
+  --muted: #6b6257;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #161616; --ink: #e9dcc9; --rib: #b8ab98; --hanger: #c9a074; --muted: #9a8f80; }
+}
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 76ch; margin: 0 auto; padding: 48px 20px 96px; }
+a { color: var(--hanger); text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 12px; }
+h1 { font-size: clamp(40px, 8vw, 64px); font-weight: 800; }
+h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; }
+h3 { font-size: 18px; font-weight: 800; }
+p { margin: 0 0 14px; }
+code { font-family: inherit; font-size: 0.95em; background: color-mix(in srgb, var(--ink) 8%, transparent); padding: 1px 5px; }
+pre { margin: 0; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+
+.hero { display: grid; grid-template-columns: 168px 1fr; gap: 28px; align-items: center; margin-bottom: 40px; }
+.hero img { width: 168px; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+.tag { color: var(--muted); font-size: 14px; margin: 0 0 6px; letter-spacing: 0.04em; }
+.lede { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+@media (max-width: 560px) { .hero { grid-template-columns: 1fr; } .hero img { width: 140px; } }
+
+.rib { height: 12px; margin: 56px 0 40px; border: 0;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 12px, var(--rib) 12px 24px); }
+
+section { margin-bottom: 8px; }
+.label { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+.label::before { content: "// "; }
+
+.card { border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); padding: 18px 20px; background: var(--paper); }
+.card + .card { margin-top: 24px; }
+.install { display: flex; align-items: center; gap: 12px; justify-content: space-between; }
+.install pre { font-size: 17px; font-weight: 700; }
+.install .prompt { color: var(--hanger); }
+button.copy { font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; color: var(--paper); background: var(--ink); border: 0; padding: 8px 12px; box-shadow: 4px 4px 0 var(--rib); }
+button.copy:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--rib); }
+.hosts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 24px; margin-top: 18px; font-size: 14px; }
+.hosts b { display: block; }
+.hosts code { display: block; margin-top: 4px; white-space: pre-wrap; word-break: break-all; }
+
+ol.rungs { list-style: none; counter-reset: rung; padding: 0; margin: 0; }
+ol.rungs li { counter-increment: rung; display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 14px 0; border-top: 3px solid var(--ink); }
+ol.rungs li:last-child { border-bottom: 3px solid var(--ink); }
+ol.rungs li::before { content: counter(rung); font-size: 28px; font-weight: 800; line-height: 1; }
+ol.rungs b { display: block; }
+
+.record { font-size: 15px; white-space: pre-wrap; word-break: break-word; }
+.record .k { font-weight: 800; }
+.q { color: var(--muted); margin-bottom: 10px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+td, th { text-align: left; vertical-align: top; padding: 10px 8px 10px 0; border-top: 3px solid var(--ink); }
+tr:last-child td { border-bottom: 3px solid var(--ink); }
+th { border-top: 0; color: var(--muted); font-weight: 600; font-size: 13px; padding-bottom: 6px; }
+td:first-child { white-space: nowrap; padding-right: 20px; }
+.no { color: var(--hanger); font-weight: 700; }
+.s { color: var(--hanger); }
+
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.card ul { padding-left: 18px; margin: 8px 0 0; }
+.card li { margin-bottom: 6px; }
+.default { font-size: 12px; color: var(--muted); }
+
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; text-align: center; }
+.nums .big { font-size: 48px; font-weight: 800; line-height: 1; }
+.nums small { display: block; color: var(--muted); margin-top: 6px; }
+.fine { color: var(--muted); font-size: 14px; margin-top: 16px; }
+
+footer { margin-top: 64px; color: var(--muted); font-size: 14px; }
+footer nav a { margin-right: 18px; }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <img src="turtleneck.svg" alt="Pixel art of a black turtleneck sweater on a wooden hanger" width="168" height="195">
+  <div>
+    <p class="tag">~/turtleneck</p>
+    <h1>turtleneck</h1>
+    <p class="lede">Makes your AI agent think like the architect everyone rolls their eyes at, until they're right.</p>
+    <p><a href="https://github.com/DietrichGebert/ponytail">Ponytail</a> makes it write less code. Turtleneck makes it stop before the decisions ponytail tells you not to make lightly: where the boundary goes, what the system is coupled to, which future you are closing off, and who pays in year three.</p>
+  </div>
+</header>
+
+<section>
+  <p class="label">install</p>
+  <div class="card">
+    <div class="install">
+      <pre><code><span class="prompt">$</span> npx skills add danielmarbach/turtleneck</code></pre>
+      <button class="copy" data-copy="npx skills add danielmarbach/turtleneck">copy</button>
+    </div>
+    <div class="hosts">
+      <div><b>Claude Code</b><code>/plugin marketplace add danielmarbach/turtleneck</code><code>/plugin install turtleneck@turtleneck</code></div>
+      <div><b>Codex</b><code>codex plugin marketplace add danielmarbach/turtleneck</code><code>codex plugin add turtleneck@turtleneck</code></div>
+      <div><b>pi</b><code>pi install git:github.com/danielmarbach/turtleneck</code></div>
+      <div><b>Anything that reads AGENTS.md</b><code>copy AGENTS.md into the project root</code></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">the_gate</p>
+  <h2>First, is this architecture at all?</h2>
+  <p>It is if any hold: hard to undo once built, closes off futures (a boundary, data ownership, a protocol, a vendor), crosses a team or system boundary, or someone other than the author pays the ongoing cost. Otherwise it is code, and the agent says so in one line and moves on. The protocol below is expensive on purpose. It only runs where undo is expensive.</p>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">the_protocol</p>
+  <h2>Six rungs. No recommendation before the last one.</h2>
+  <ol class="rungs">
+    <li><div><b>Ride the elevator.</b> State the decision on two floors: penthouse (business outcome, who pays) and engine room (what changes, what on-call sees). Missing a floor? Ask. Never fill it with invented domain knowledge.</div></li>
+    <li><div><b>Open the solution space.</b> At least three options that differ in kind, always including defer and buy-or-reuse. The option you arrived with gets attacked hardest.</div></li>
+    <li><div><b>Stress it.</b> 8 to 12 stressors, business and technical, at least two absurd, no probabilities. Stressors that break the same components reveal hidden coupling. That is where a boundary wants to be.</div></li>
+    <li><div><b>Price the options.</b> Build cost, run cost and who carries it, undo cost, what stays open. Surviving a stressor is a purchase. Name the price.</div></li>
+    <li><div><b>Cross-examine.</b> Elevator pass: which stressors are worth paying for at all? Residuality pass: which price assumes a future you do not know? Keep what survives both.</div></li>
+    <li><div><b>Decide or defer.</b> "We give up X to get Y." The observable facts that would flip it. The questions only the owner can answer.</div></li>
+  </ol>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">the_output</p>
+  <h2>A record, not an essay.</h2>
+  <p class="q">"Should we put a Redis cache in front of the product catalog reads?" at napkin level. Unedited output from the eval run.</p>
+  <div class="card record"><span class="k">Options:</span> A add Redis in front of catalog reads: new system, shared cache, near-instant invalidation. B in-process cache with a short TTL: no new system, per-instance staleness. C defer: measure whether the DB is actually the bottleneck before adding anything. D reuse: a read replica or an existing CDN/cache layer, if one already runs.
+<span class="k">Pick:</span> B, or D if a read replica already exists.
+<span class="k">We give up</span> cross-instance consistency and instant invalidation <span class="k">to get</span> no new system to operate and no cache-invalidation contract to own.
+<span class="k">Flips if:</span> catalog edits must be visible within seconds on every instance, or read volume outgrows one DB plus local caches.
+<span class="k">You decide:</span> how stale can a catalog read be, and is the DB actually the bottleneck at peak?</div>
+  <p class="fine">The last line is the point. The failure mode of AI in architecture is plausible design in a domain nobody in the room understands. Every gap in knowledge becomes a question instead of prose.</p>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">banned_moves</p>
+  <h2>What pattern-matching looks like, and the move that replaces it.</h2>
+  <table>
+    <thead><tr><th>banned</th><th>instead</th></tr></thead>
+    <tbody>
+      <tr><td class="no">"It depends."</td><td>It depends on X. If X, then A. If not, B. Here is how to find out X.</td></tr>
+      <tr><td class="no">scalability: high</td><td>Under 10x volume, A survives, B starves the thread pool.</td></tr>
+      <tr><td class="no">"best practice"</td><td>The stressor or organizational force the practice answers here.</td></tr>
+      <tr><td class="no">a pattern by name</td><td>The stressor it answers, and the price of the answer.</td></tr>
+      <tr><td class="no">new tech as the fix</td><td>Name the habit that made the old one painful. Check the new one does not let it continue.</td></tr>
+      <tr><td class="no">three listed, one explored</td><td>Same stressor table and same price columns for every option.</td></tr>
+      <tr><td class="no">quoting named architects</td><td>Make the argument. If it is good, it does not need a name on it.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">commands</p>
+  <h2>Drive it from chat.</h2>
+  <table>
+    <tbody>
+      <tr><td><code><span class="s">/</span>turtleneck napkin|full|deep</code></td><td>run the protocol at a level</td></tr>
+      <tr><td><code><span class="s">/</span>turtleneck-review</code></td><td>gap list over an ADR, design doc, RFC, or PR description</td></tr>
+      <tr><td><code><span class="s">/</span>turtleneck-stress</code></td><td>residuality pass alone: stressors, residues, attractors, boundary candidates</td></tr>
+      <tr><td><code><span class="s">/</span>turtleneck-help</code></td><td>quick reference</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">levels</p>
+  <h2>Spend analysis where undo is expensive.</h2>
+  <div class="grid3">
+    <div class="card"><h3>napkin</h3><p>Ten lines. Options, pick, the trade-off as a loss, one flip condition, one owner question. For first cuts and cheap-ish undos.</p></div>
+    <div class="card"><h3>full <span class="default"># default</span></h3><p>The six rungs. 8 to 12 stressors, both cross-exam passes, a one-page record.</p></div>
+    <div class="card"><h3>deep</h3><p>Full plus the stressor-by-component incidence matrix, attractor analysis, and a contagion trace. For boundaries several teams will live behind.</p></div>
+  </div>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">the_two_lenses</p>
+  <h2>Two bodies of work that pull in different directions.</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>The Architect Elevator</h3>
+      <p>Gregor Hohpe. Architects ride between the penthouse where business decisions happen and the engine room where systems run.</p>
+      <ul>
+        <li>A decision described on one floor is not a decision.</li>
+        <li>Architecture is selling options, and options have a premium.</li>
+        <li>Loose coupling has a price on both sides.</li>
+        <li>New technology punishes bad habits.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Residuality Theory</h3>
+      <p>Barry O'Reilly. The business environment is not a stable system with knowable probabilities.</p>
+      <ul>
+        <li>Hit the naive design with random stressors, including absurd ones.</li>
+        <li>Let the component structure emerge from what survives.</li>
+        <li>Two components that break under the same stressor are coupled, whether or not the code shows it.</li>
+        <li>No likelihoods. Every stressor is treated as if it will happen.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fine">They disagree in a useful way. The elevator says resilience is not free and asks who upstairs cares about this stressor. Residuality says your tidy price table assumes you know which future arrives. Rung 5 runs that argument on every decision. Neither author is involved in or endorses this project. Read the books at <a href="https://architectelevator.com">architectelevator.com</a> and <a href="https://residuality.io">residuality.io</a>; this is a checklist, not a substitute.</p>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">evals</p>
+  <h2>Does the model actually follow it?</h2>
+  <div class="nums">
+    <div><div class="big">96%</div><small>checks passed with the skill</small></div>
+    <div><div class="big">46%</div><small>same model, same checks, no skill</small></div>
+    <div><div class="big">15</div><small>cases: decide, gate, review, stress</small></div>
+  </div>
+  <p class="fine">Deterministic checks for required sections, option count, stressor count, absurd stressors, the trade-off stated as a loss, flip conditions, owner questions, the gate on non-architecture prompts, and the banned moves, plus an LLM judge on four rubric criteria. One model, one run, protocol compliance only. Whether the records are good architecture still needs a human architect. Harness and results in <a href="https://github.com/danielmarbach/turtleneck/tree/main/evals">evals/</a>.</p>
+</section>
+
+<hr class="rib">
+
+<section>
+  <p class="label">lineage</p>
+  <h2>Siblings.</h2>
+  <p><a href="https://github.com/DietrichGebert/ponytail">Ponytail</a> decides how little code goes inside the boundary. Turtleneck decides where the boundary goes. They compose; turtleneck's gate hands anything that is not architecture straight back.</p>
+  <p>The black turtleneck is the uniform of the person who decides what not to build. <a href="https://github.com/darrenohd/turtleneck">darrenohd/turtleneck</a> got there first with a ponytail sibling for product scoping. This project is unrelated and landed on the same name independently.</p>
+</section>
+
+<footer>
+  <nav>
+    <a href="https://github.com/danielmarbach/turtleneck">GitHub</a>
+    <a href="https://github.com/danielmarbach/turtleneck#readme">README</a>
+    <a href="https://skills.sh/danielmarbach/turtleneck">skills.sh</a>
+    <a href="https://github.com/danielmarbach/turtleneck/blob/main/LICENSE">MIT</a>
+  </nav>
+  <p>A protocol, not a persona. Nothing here asks the model to imitate anyone. It asks the model to not skip steps.</p>
+</footer>
+
+</main>
+<script>
+document.querySelectorAll("button.copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    navigator.clipboard.writeText(b.dataset.copy).then(function () {
+      b.textContent = "copied"; setTimeout(function () { b.textContent = "copy"; }, 1200);
+    });
+  });
+});
+</script>
+</body>
+</html>

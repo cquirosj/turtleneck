@@ -1,4 +1,4 @@
-"""Generates assets/turtleneck.svg from the character grid below. Run: python3 assets/make_pixel_art.py"""
+"""Generates assets/turtleneck.svg and docs/turtleneck.svg from the character grid below. Run: python3 assets/make_pixel_art.py"""
 import os
 
 ROWS = """
@@ -56,10 +56,11 @@ def main() -> None:
                     f'width="{CELL}" height="{CELL}" fill="{PALETTE[ch]}"/>'
                 )
     out.append("</svg>")
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "turtleneck.svg")
-    with open(path, "w") as f:
-        f.write("\n".join(out))
-    print(f"wrote {path}: {w}x{h} grid, {len(out) - 3} pixels")
+    here = os.path.dirname(os.path.abspath(__file__))
+    for path in (os.path.join(here, "turtleneck.svg"), os.path.join(here, "..", "docs", "turtleneck.svg")):
+        with open(os.path.normpath(path), "w") as f:
+            f.write("\n".join(out))
+        print(f"wrote {os.path.normpath(path)}: {w}x{h} grid, {len(out) - 3} pixels")
     shade = str.maketrans({".": " ", "k": "█", "K": "▓", "w": "▒"})
     print("\n".join(r.translate(shade) for r in ROWS))
 
