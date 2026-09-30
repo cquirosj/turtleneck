@@ -149,3 +149,6 @@ __pycache__/
 # eval runs: keep the summary, not the raw model dumps
 evals/results/*.json
 evals/results/*.log
+
+# macOS
+.DS_Store
