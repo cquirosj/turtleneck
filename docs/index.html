@@ -134,7 +134,7 @@ footer nav a { margin-right: 18px; }
 <section>
   <p class="label">the_gate</p>
   <h2>First, is this architecture at all?</h2>
-  <p>It is if any hold: hard to undo once built, closes off futures (a boundary, data ownership, a protocol, a vendor), crosses a team or system boundary, or someone other than the author pays the ongoing cost. Otherwise it is code, and the agent says so in one line and moves on. The protocol below is expensive on purpose. It only runs where undo is expensive.</p>
+  <p>It is if any hold: hard to undo once built, closes off futures (a boundary, data ownership, a protocol, a vendor), crosses a team or system boundary, or someone other than the author pays the ongoing cost. Otherwise it is code, and the agent says so in one line and moves on. The protocol below is expensive on purpose and only runs where undo is expensive.</p>
 </section>
 
 <hr class="rib">
@@ -156,14 +156,14 @@ footer nav a { margin-right: 18px; }
 
 <section>
   <p class="label">the_output</p>
-  <h2>A record, not an essay.</h2>
+  <h2>The output is a one-page record.</h2>
   <p class="q">"Should we put a Redis cache in front of the product catalog reads?" at napkin level. Unedited output from the eval run.</p>
   <div class="card record"><span class="k">Options:</span> A add Redis in front of catalog reads: new system, shared cache, near-instant invalidation. B in-process cache with a short TTL: no new system, per-instance staleness. C defer: measure whether the DB is actually the bottleneck before adding anything. D reuse: a read replica or an existing CDN/cache layer, if one already runs.
 <span class="k">Pick:</span> B, or D if a read replica already exists.
 <span class="k">We give up</span> cross-instance consistency and instant invalidation <span class="k">to get</span> no new system to operate and no cache-invalidation contract to own.
 <span class="k">Flips if:</span> catalog edits must be visible within seconds on every instance, or read volume outgrows one DB plus local caches.
 <span class="k">You decide:</span> how stale can a catalog read be, and is the DB actually the bottleneck at peak?</div>
-  <p class="fine">The last line is the point. The failure mode of AI in architecture is plausible design in a domain nobody in the room understands. Every gap in knowledge becomes a question instead of prose.</p>
+  <p class="fine">The last line matters most. The failure mode of AI in architecture is plausible design in a domain nobody in the room understands, so every gap in knowledge becomes a question.</p>
 </section>
 
 <hr class="rib">
@@ -239,7 +239,7 @@ footer nav a { margin-right: 18px; }
       </ul>
     </div>
   </div>
-  <p class="fine">They disagree in a useful way. The elevator says resilience is not free and asks who upstairs cares about this stressor. Residuality says your tidy price table assumes you know which future arrives. Rung 5 runs that argument on every decision. Neither author is involved in or endorses this project. Read the books at <a href="https://architectelevator.com">architectelevator.com</a> and <a href="https://residuality.io">residuality.io</a>; this is a checklist, not a substitute.</p>
+  <p class="fine">They disagree in a useful way. The elevator says resilience is not free and asks who upstairs cares about this stressor. Residuality says your tidy price table assumes you know which future arrives. Rung 5 runs that argument on every decision. Neither author is involved in or endorses this project. Read the books at <a href="https://architectelevator.com">architectelevator.com</a> and <a href="https://residuality.io">residuality.io</a>. This page only holds the working questions.</p>
 </section>
 
 <hr class="rib">
@@ -252,7 +252,7 @@ footer nav a { margin-right: 18px; }
     <div><div class="big">46%</div><small>same model, same checks, no skill</small></div>
     <div><div class="big">15</div><small>cases: decide, gate, review, stress</small></div>
   </div>
-  <p class="fine">Deterministic checks for required sections, option count, stressor count, absurd stressors, the trade-off stated as a loss, flip conditions, owner questions, the gate on non-architecture prompts, and the banned moves, plus an LLM judge on four rubric criteria. One model, one run, protocol compliance only. Whether the records are good architecture still needs a human architect. Harness and results in <a href="https://github.com/danielmarbach/turtleneck/tree/main/evals">evals/</a>.</p>
+  <p class="fine">Deterministic checks for required sections, option count, stressor count, absurd stressors, the trade-off stated as a loss, flip conditions, owner questions, the gate on non-architecture prompts, and the banned moves, plus an LLM judge on four rubric criteria. This is one model and one run, and it measures protocol compliance. Whether the records are good architecture still needs a human architect. Harness and results in <a href="https://github.com/danielmarbach/turtleneck/tree/main/evals">evals/</a>.</p>
 </section>
 
 <hr class="rib">
@@ -271,7 +271,7 @@ footer nav a { margin-right: 18px; }
     <a href="https://skills.sh/danielmarbach/turtleneck">skills.sh</a>
     <a href="https://github.com/danielmarbach/turtleneck/blob/main/LICENSE">MIT</a>
   </nav>
-  <p>A protocol, not a persona. Nothing here asks the model to imitate anyone. It asks the model to not skip steps.</p>
+  <p>A protocol rather than a persona: the model imitates nobody and skips no steps.</p>
 </footer>
 
 </main>

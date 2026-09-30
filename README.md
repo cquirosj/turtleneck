@@ -17,8 +17,8 @@ the decisions that ponytail tells you not to make lightly: where the
 boundary goes, what the system is coupled to, which future you are closing
 off, and who pays in year three.
 
-It is a protocol, not a persona. Nothing here asks the model to imitate
-anyone. It asks the model to not skip steps.
+It is a protocol rather than a persona: the model imitates nobody and skips
+no steps.
 
 ## How it works
 
@@ -43,14 +43,14 @@ If it is, the agent climbs six rungs:
                              and the decisions only the owner can make.
 ```
 
-The output is a one-page decision record. Every option that lost and why.
-Every stressor and what it broke. The trade-off accepted, stated as a loss
-and a gain. The facts that would flip it. The questions the model could not
-answer because they need domain knowledge it does not have.
+The output is a one-page decision record: every option that lost and why,
+every stressor and what it broke, the accepted trade-off stated as a loss
+and a gain, the facts that would flip it, and the questions the model could
+not answer because they need domain knowledge it does not have.
 
-That last section is the point. The failure mode of AI in architecture is
-plausible design in a domain nobody in the room understands. Turtleneck
-turns every gap in knowledge into a question instead of prose.
+That last section matters most, because the failure mode of AI in
+architecture is plausible design in a domain nobody in the room understands.
+Turtleneck turns every gap in knowledge into a question.
 
 ## Banned moves
 
@@ -121,7 +121,8 @@ pi install git:github.com/danielmarbach/turtleneck
 Copy `AGENTS.md` into your project root or `~/.config/<host>/AGENTS.md`. The
 always-on ruleset works without the commands.
 
-All adapters point at the same `skills/` folder. No hooks, no extension code.
+All adapters point at the same `skills/` folder, with no hooks and no
+extension code.
 
 ## The two lenses
 
@@ -131,8 +132,8 @@ The protocol pairs two bodies of work that pull in different directions.
 penthouse where business decisions happen and the engine room where systems
 run. A decision described on one floor is not a decision. Architecture is
 selling options, and options have a premium. Loose coupling has a price on
-both sides. New technology punishes bad habits. The deliverable is
-trade-offs made explicit, not diagrams.
+both sides. New technology punishes bad habits. The deliverable is the
+trade-offs, made explicit.
 
 **Residuality Theory** (Barry O'Reilly). The business environment is not a
 stable system with knowable probabilities. So instead of listing likely
@@ -146,8 +147,8 @@ asks who upstairs cares about this stressor. Residuality says your tidy
 price table assumes you know which future arrives. Rung 5 runs that
 argument on every decision.
 
-Neither author is involved in or endorses this project. Read their books;
-this repo is a checklist, not a substitute.
+Neither author is involved in or endorses this project. Read their books.
+This repo only holds the working questions.
 
 - Gregor Hohpe: *The Software Architect Elevator*, *37 Things One Architect
   Knows About IT Transformation*, *Cloud Strategy*, *Platform Strategy*,
@@ -191,6 +192,6 @@ Results land in `evals/results/`. See [evals/README.md](evals/README.md).
 
 ## Status
 
-Draft. The eval measures protocol compliance, not decision quality. Whether
-the records are good architecture still needs a human architect comparing
-them with what they would have written.
+Draft. The eval measures protocol compliance. Whether the records are good
+architecture still needs a human architect comparing them with what they
+would have written.
