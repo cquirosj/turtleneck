@@ -7,7 +7,7 @@
 Makes your AI agent think like the architect everyone rolls their eyes at,
 until they're right.
 
-Ponytail makes the agent write less code. Turtleneck makes it stop before
+[Ponytail](https://github.com/DietrichGebert/ponytail) makes the agent write less code. Turtleneck makes it stop before
 the decisions that ponytail tells you not to make lightly: where the
 boundary goes, what the system is coupled to, which future you are closing
 off, and who pays in year three.
@@ -131,7 +131,8 @@ this repo is a checklist, not a substitute.
 
 ## With ponytail
 
-They compose. Turtleneck decides where the boundary goes. Ponytail decides
+They compose. Turtleneck decides where the boundary goes.
+[Ponytail](https://github.com/DietrichGebert/ponytail) decides
 how little code goes inside it. Turtleneck's gate hands anything that is
 not architecture straight back.
 
