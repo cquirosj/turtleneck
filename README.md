@@ -1,6 +1,9 @@
 <p align="center">
   <img src="assets/turtleneck.svg" width="200" alt="Pixel art of a black turtleneck sweater on a wooden hanger">
 </p>
+<p align="center">
+  <a href="https://skills.sh/danielmarbach/turtleneck"><img alt="skills.sh" src="https://skills.sh/b/danielmarbach/turtleneck"></a>
+</p>
 
 # Turtleneck
 
@@ -78,6 +81,15 @@ stressor-by-component incidence matrix and contagion trace, for boundaries
 several teams will live behind.
 
 ## Install
+
+**Any agent, via the skills CLI**
+
+```
+npx skills add danielmarbach/turtleneck
+```
+
+Installs the four skills into whichever supported agents it detects. Add
+`--skill turtleneck` to take only the main protocol.
 
 **Claude Code**
 
