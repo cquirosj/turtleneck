@@ -163,10 +163,11 @@ This repo only holds the working questions.
 - Gregor Hohpe: *The Software Architect Elevator*, *37 Things One Architect
   Knows About IT Transformation*, *Cloud Strategy*, *Platform Strategy*,
   *Enterprise Integration Patterns*. [architectelevator.com](https://architectelevator.com)
-- Barry O'Reilly: *Residues: Time, Change, and Uncertainty in Software
-  Architecture*, *The Architect's Paradox*. This is the Barry O'Reilly of
-  Black Tulip Technology, not the author of *Unlearn*.
-  [residuality.io](https://residuality.io)
+- Barry O'Reilly: [*Residues: Time, Change, and Uncertainty in Software
+  Architecture*](https://leanpub.com/residuality) and [*The Architect's
+  Paradox*](https://leanpub.com/architectsparadox). This is the Barry
+  O'Reilly of [Black Tulip Technology](https://www.blacktulip.se), not the
+  author of *Unlearn*.
 
 ## With ponytail
 

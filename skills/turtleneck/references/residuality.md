@@ -48,7 +48,9 @@ their absence as a gap in the analysis, not as completeness.
   where the stressor impacts the component. Columns that co-vary point at
   hidden coupling. Rows that hit everything point at a missing boundary.
 - **Contagion**: how a failure spreads from the component a stressor hits
-  to the components coupled to it, visibly or hyperliminally.
+  to the components coupled to it, traced over the dependencies and
+  information flows between components (a design structure matrix, when
+  drawn out).
 - **Criticality**: the region between rigid and chaotic. Enough coupling to
   function, few enough couplings that a stressor does not cascade
   everywhere. Architecture aims for this region, not for minimal coupling.
@@ -124,7 +126,11 @@ the brief names no domain at all.
    breaks, what survives, what you would change.
 4. Collect the changes per option. Changes that recur across many stressors
    are not optional; they are the structure the environment demands.
-5. At deep level, draw the incidence matrix per option. Look for:
+5. At deep level, trace contagion for the top stressors first: which
+   failure spreads across the proposed boundary through dependencies and
+   information flows, and which stays behind it. A boundary that contagion
+   crosses freely is a line on a diagram, not a boundary.
+6. Then draw the incidence matrix per option. Look for:
    - columns that co-vary: two components that always break together want
      to be one component, or want a deliberate boundary between them and
      everything else
@@ -132,12 +138,11 @@ the brief names no domain at all.
      means a boundary is missing
    - columns that nothing hits: a component the environment does not care
      about, and a candidate for buying instead of building
-6. Trace contagion for the top two stressors: which failure crosses the
-   proposed boundary and which stays behind it. A boundary that contagion
-   crosses freely is a line on a diagram, not a boundary.
-7. Adjust the option and rerun with a few new random stressors. Stop when
-   new stressors stop producing new changes. That is the residual
-   architecture.
+7. Hold back a few stressors as a test set. Adjust the option against the
+   rest, then check it survives the held-back ones it was never adjusted
+   for. Surviving stress it has not seen is the claim the method makes, so
+   this split is the test that earns it. Stop when new stressors stop
+   producing new changes. That is the residual architecture.
 
 ## Residuality pass, rung 5 checklist
 

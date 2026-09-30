@@ -1,9 +1,14 @@
 {
   "name": "turtleneck",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Architecture trade-off mode for AI agents. Options, stressors, prices, flip conditions, owner decisions.",
-  "keywords": ["pi-package", "pi", "skills", "architecture"],
+  "keywords": [
+    "pi-package",
+    "pi",
+    "skills",
+    "architecture"
+  ],
   "license": "MIT",
   "author": {
     "name": "Daniel Marbach",
@@ -15,6 +20,8 @@
     "url": "git+https://github.com/danielmarbach/turtleneck.git"
   },
   "pi": {
-    "skills": ["./skills"]
+    "skills": [
+      "./skills"
+    ]
   }
 }

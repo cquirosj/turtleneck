@@ -37,7 +37,9 @@ operate" is a trade-off both floors can argue about.
 
 Deferring a decision has value when the future is uncertain and the cost of
 keeping the door open is low. That value is an option, and options have a
-premium. Sometimes the premium is worth it, sometimes it is gold-plating.
+premium. The more uncertain the future, the more the option is worth, which
+is the Black-Scholes intuition behind the metaphor. Sometimes the premium
+is worth it, sometimes it is gold-plating.
 
 For every option considered ask:
 

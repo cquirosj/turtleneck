@@ -6,6 +6,23 @@ scorecard; the judge mean is part of the entry. Release steps: RELEASING.md.
 
 ## Unreleased
 
+## 0.2.0 - 2026-09-30
+
+Fidelity audit against the published source material.
+
+- Residuality reference now matches O'Reilly's pipeline: contagion analysis
+  runs over component dependencies before the incidence matrix, and the
+  procedure holds back a test set of stressors the adjusted architecture was
+  never tuned for, which is the empirical core of the method.
+- Contagion is defined over dependencies and information flows (a design
+  structure matrix), not loosely as "failure spreads".
+- Elevator reference states the Black-Scholes intuition: option value rises
+  with uncertainty.
+- Fixed dead residuality.io links; both O'Reilly books now link to Leanpub
+  and Black Tulip Technology.
+- Regression: opus-judged deepseek mean 37.0 of 50, unchanged from the
+  0.1.0 baseline.
+
 ## 0.1.0 - 2026-09-30
 
 Initial release.
