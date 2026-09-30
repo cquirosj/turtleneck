@@ -1,0 +1,43 @@
+name: ci
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Unit tests
+        run: python3 -m unittest discover -s evals -p "test_*.py"
+      - name: Checker dry-run against fixtures
+        run: python3 evals/run.py --arm skill --dry-run
+
+  versions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Manifests agree
+        run: |
+          python3 - <<'EOF'
+          import json
+          files = [".claude-plugin/plugin.json", ".codex-plugin/plugin.json", "package.json"]
+          versions = {f: json.load(open(f))["version"] for f in files}
+          print(versions)
+          assert len(set(versions.values())) == 1, f"version drift: {versions}"
+          EOF
+      - name: Tag matches manifest version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          python3 - <<'EOF'
+          import json, os
+          tag = os.environ["GITHUB_REF_NAME"].lstrip("v")
+          version = json.load(open("package.json"))["version"]
+          assert tag == version, f"tag v{tag} != manifest {version}"
+          print(f"tag v{tag} matches manifests")
+          EOF
