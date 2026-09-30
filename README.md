@@ -219,6 +219,7 @@ Unedited records from the kata suite, with the judge's notes:
 
 ## Status
 
-Draft. The eval measures protocol compliance. Whether the records are good
-architecture still needs a human architect comparing them with what they
-would have written.
+Early. The protocol is stable and the eval harness guards changes to it.
+The eval measures protocol compliance and judge-scored record quality;
+whether the records are good architecture still needs a human architect
+comparing them with what they would have written.
