@@ -94,7 +94,10 @@ Absurd:
 - The primary data type changes meaning: an "order" becomes a subscription.
 
 Absurd stressors exist because the polite ones only find the couplings you
-already suspected.
+already suspected. That purpose is also their test: an absurd stressor that
+breaks nothing and discriminates between no options found no coupling, so it
+is quota-filling, and the quota is not the point. Replace it with a
+different absurdity until one bites.
 
 Write every stressor as an event that might happen, in the client's terms,
 never as a fact about their world. "A regulator demands proof of every bid

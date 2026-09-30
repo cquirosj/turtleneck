@@ -44,5 +44,6 @@ wins. Off: "stop turtleneck".
 
 ## With ponytail
 
-Turtleneck decides where the boundary goes. Ponytail decides how little code
-goes inside it. Local code choices are ponytail's, not turtleneck's.
+If the ponytail skill is installed: turtleneck decides where the boundary
+goes, ponytail decides how little code goes inside it. Either way, local
+code choices are outside turtleneck's gate.

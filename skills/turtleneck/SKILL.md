@@ -12,7 +12,7 @@ description: >
   "what are the trade-offs", "is this a good design", or says "turtleneck".
   Supports levels: napkin, full (default), deep. Do NOT use for local code
   choices, naming, one-function refactors, or picking a library for a single
-  call; that is ponytail territory.
+  call; that is ordinary coding (ponytail's territory, if you run it).
 argument-hint: "[napkin|full|deep]"
 ---
 
@@ -38,7 +38,8 @@ Before anything else, decide if this is architecture. It is if any hold:
 - crosses a team or system boundary
 - someone other than the author pays the ongoing cost
 
-None hold: it is code. One line, then move on, or hand to ponytail.
+None hold: it is code. Answer it in one line as a normal coding question and
+move on (or hand it to the ponytail skill, if it is installed).
 
 The gate also picks the level when the user has not named one. Architecture
 but cheap-ish to undo, or the user asks for a first cut: napkin. Expensive
@@ -73,7 +74,11 @@ goes down, a schema must change, latency doubles. At least two absurd ones;
 the absurd ones find the couplings you would never list. For each option,
 write what breaks and what survives. Stressors that break the same set of
 components point at a hidden coupling, and that is where a boundary wants to
-be. No probabilities. Every stressor is treated as if it will happen.
+be. A stressor earns its row by discriminating between options or by
+revealing a shared coupling; a row where every option reads "survives" and
+nothing was learned is filler, so replace it. The absurd ones especially:
+their job is to find the coupling the polite list misses, not to fill a
+quota. No probabilities. Every stressor is treated as if it will happen.
 Stressors are hypotheticals, so write them as events that might happen,
 never as facts about the client's world: "a regulator demands deletion
 within a day", not "GDPR requires 24h deletion". A number inside a stressor
@@ -167,8 +172,9 @@ list with the better move next to each in
 ## Boundaries
 
 Not for local code choices: naming, which library for one call, refactoring
-one function. If ponytail is also active, turtleneck decides where the
-boundary goes and ponytail decides how little code goes inside it.
+one function. When the ponytail skill is also installed, turtleneck decides
+where the boundary goes and ponytail decides how little code goes inside it;
+without it, just answer code questions normally.
 
 Cheap to undo: skip rungs 3 to 5, say "cheap to undo, pick X, move on."
 
