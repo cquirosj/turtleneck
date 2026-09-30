@@ -38,8 +38,15 @@ Before anything else, decide if this is architecture. It is if any hold:
 - crosses a team or system boundary
 - someone other than the author pays the ongoing cost
 
-None hold: it is code. One line, then move on, or hand to ponytail. The
-protocol below is expensive on purpose. Spend it only where undo is expensive.
+None hold: it is code. One line, then move on, or hand to ponytail.
+
+The gate also picks the level when the user has not named one. Architecture
+but cheap-ish to undo, or the user asks for a first cut: napkin. Expensive
+to undo, or a boundary several teams will live behind: full. Deep only when
+explicitly requested. Say which level you picked and why in one clause. The
+protocol below is expensive on purpose, so spend it only where undo is
+expensive; a wrong guess costs one message, the user names the level and you
+rerun.
 
 ## The protocol
 

@@ -72,7 +72,7 @@ Full list with the better move next to each:
 
 | Command | What it does |
 |---------|--------------|
-| `/turtleneck [napkin \| full \| deep]` | Run the protocol at the given level. Default `full`. |
+| `/turtleneck [napkin \| full \| deep]` | Run the protocol. Without a level, the gate picks one from undo cost. |
 | `/turtleneck-review` | Gap list over an existing ADR, design doc, RFC, or PR description. |
 | `/turtleneck-stress` | Residuality pass alone: stressors, residues, attractors, boundary candidates. |
 | `/turtleneck-help` | Quick reference. |
@@ -80,7 +80,9 @@ Full list with the better move next to each:
 Levels track how expensive the decision is to undo. `napkin` is ten lines
 for a first cut. `full` is the protocol. `deep` adds the
 stressor-by-component incidence matrix and contagion trace, for boundaries
-several teams will live behind.
+several teams will live behind. When you name no level, the gate picks
+napkin for cheap-ish undos and full for expensive ones, and says why. Deep
+only runs when asked.
 
 ## Install
 

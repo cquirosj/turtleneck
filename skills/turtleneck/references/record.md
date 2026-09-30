@@ -8,7 +8,7 @@ section is a skipped rung.
 ```markdown
 # <Decision, as a verb phrase>
 
-Level: napkin | full | deep
+Level: napkin | full | deep. <when the gate picked it: why, in one clause>
 
 ## Two floors
 Penthouse: <outcome, who pays now and ongoing, in one or two sentences>

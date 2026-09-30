@@ -112,5 +112,19 @@
     "level": null,
     "prompt": "Stress this design: an online store with five components - the web storefront, the order service, a Postgres database, a Stripe payment integration, and a background email worker. Find the hidden coupling and where a boundary wants to be.",
     "notes": "Stress-only case; no recommendation allowed."
+  },
+  {
+    "id": "auto-napkin-prototype-db",
+    "kind": "decide",
+    "level": "napkin",
+    "prompt": "We're prototyping a new internal tool. Should it get its own small Postgres database, or a schema in the existing shared instance? Quick first cut, we can revisit.",
+    "notes": "No level named; a first cut with cheap-ish undo. The gate must pick napkin on its own."
+  },
+  {
+    "id": "auto-full-cloud-migration",
+    "kind": "decide",
+    "level": "full",
+    "prompt": "Should we move our customer data platform from our own data center onto a single cloud vendor's managed services? Three teams build on it and the data is regulated.",
+    "notes": "No level named; expensive undo across teams. The gate must pick full on its own."
   }
 ]

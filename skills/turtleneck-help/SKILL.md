@@ -16,10 +16,13 @@ anything.
 | Level | Use when |
 |-------|----------|
 | `napkin` | First cut, or cheap-ish to undo. Ten lines: options, pick, trade-off, one flip, one owner question. |
-| `full` | Default. The six rungs, 8 to 12 stressors, both cross-exam passes, one-page record. |
+| `full` | The six rungs, 8 to 12 stressors, both cross-exam passes, one-page record. |
 | `deep` | Expensive to undo, or a boundary several teams will live behind. Adds incidence matrix, attractors, contagion. |
 
-Switch: `/turtleneck napkin|full|deep`. Off: "stop turtleneck".
+No level named: the gate picks napkin for cheap-ish undos and first cuts,
+full for expensive undos and multi-team boundaries, and says why. Deep is
+always explicit. Switch: `/turtleneck napkin|full|deep`; an explicit level
+wins. Off: "stop turtleneck".
 
 ## Skills
 
