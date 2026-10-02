@@ -94,6 +94,7 @@ This repo only holds the working questions.
 Before recommending, the agent checks whether the decision is architecture
 at all: hard to undo, closes off futures, crosses a team boundary, or costs
 someone else money to run. If not, it says so in one line and moves on.
+This check is the gate.
 
 If it is, the agent climbs six rungs:
 
