@@ -20,7 +20,7 @@ accepted trade-off stated as a loss, and the questions only you can answer.
 The output is a one-page decision record, sized to how expensive the
 decision is to undo.
 
-[Ponytail](https://github.com/DietrichGebert/ponytail) makes the agent write less code. Turtleneck makes it stop before
+[Ponytail](https://github.com/DietrichGebert/ponytail), another agent skill, makes the agent write less code. Turtleneck makes it stop before
 the decisions that ponytail tells you not to make lightly: where the
 boundary goes, what the system is coupled to, which future you are closing
 off, and who pays in year three.
