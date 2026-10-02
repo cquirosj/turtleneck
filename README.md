@@ -28,6 +28,41 @@ off, and who pays in year three.
 It is a protocol rather than a persona: the model imitates nobody and skips
 no steps.
 
+## The two lenses
+
+The protocol pairs two bodies of work that pull in different directions.
+
+**The Architect Elevator** (Gregor Hohpe). Architects ride between the
+penthouse where business decisions happen and the engine room where systems
+run. A decision described on one floor is not a decision. Architecture is
+selling options, and options have a premium. Loose coupling has a price on
+both sides. New technology punishes bad habits. The deliverable is the
+trade-offs, made explicit.
+
+**Residuality Theory** (Barry O'Reilly). The business environment is not a
+stable system with knowable probabilities. So instead of listing likely
+risks, hit the naive design with random stressors, including absurd ones,
+and let the component structure emerge from what survives. Two components
+that break under the same stressor are coupled, whether or not the code
+shows it.
+
+They disagree in a useful way. The elevator says resilience is not free and
+asks who upstairs cares about this stressor. Residuality says your tidy
+price table assumes you know which future arrives. Rung 5 below runs that
+argument on every decision.
+
+Neither author is involved in or endorses this project. Read their books.
+This repo only holds the working questions.
+
+- Gregor Hohpe: *The Software Architect Elevator*, *37 Things One Architect
+  Knows About IT Transformation*, *Cloud Strategy*, *Platform Strategy*,
+  *Enterprise Integration Patterns*. [architectelevator.com](https://architectelevator.com)
+- Barry O'Reilly: [*Residues: Time, Change, and Uncertainty in Software
+  Architecture*](https://leanpub.com/residuality) and [*The Architect's
+  Paradox*](https://leanpub.com/architectsparadox). This is the Barry
+  O'Reilly of [Black Tulip Technology](https://www.blacktulip.se), not the
+  author of *Unlearn*.
+
 ## How it works
 
 Before recommending, the agent checks whether the decision is architecture
@@ -133,41 +168,6 @@ always-on ruleset works without the commands.
 
 All adapters point at the same `skills/` folder, with no hooks and no
 extension code.
-
-## The two lenses
-
-The protocol pairs two bodies of work that pull in different directions.
-
-**The Architect Elevator** (Gregor Hohpe). Architects ride between the
-penthouse where business decisions happen and the engine room where systems
-run. A decision described on one floor is not a decision. Architecture is
-selling options, and options have a premium. Loose coupling has a price on
-both sides. New technology punishes bad habits. The deliverable is the
-trade-offs, made explicit.
-
-**Residuality Theory** (Barry O'Reilly). The business environment is not a
-stable system with knowable probabilities. So instead of listing likely
-risks, hit the naive design with random stressors, including absurd ones,
-and let the component structure emerge from what survives. Two components
-that break under the same stressor are coupled, whether or not the code
-shows it.
-
-They disagree in a useful way. The elevator says resilience is not free and
-asks who upstairs cares about this stressor. Residuality says your tidy
-price table assumes you know which future arrives. Rung 5 runs that
-argument on every decision.
-
-Neither author is involved in or endorses this project. Read their books.
-This repo only holds the working questions.
-
-- Gregor Hohpe: *The Software Architect Elevator*, *37 Things One Architect
-  Knows About IT Transformation*, *Cloud Strategy*, *Platform Strategy*,
-  *Enterprise Integration Patterns*. [architectelevator.com](https://architectelevator.com)
-- Barry O'Reilly: [*Residues: Time, Change, and Uncertainty in Software
-  Architecture*](https://leanpub.com/residuality) and [*The Architect's
-  Paradox*](https://leanpub.com/architectsparadox). This is the Barry
-  O'Reilly of [Black Tulip Technology](https://www.blacktulip.se), not the
-  author of *Unlearn*.
 
 ## With ponytail
 
