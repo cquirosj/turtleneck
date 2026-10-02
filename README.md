@@ -48,9 +48,11 @@ trade-offs, made explicit.
 **Residuality Theory** (Barry O'Reilly). The business environment is not a
 stable system with knowable probabilities. So instead of listing likely
 risks, hit the naive design with random stressors, including absurd ones,
-and let the component structure emerge from what survives. Two components
-that break under the same stressor are coupled, whether or not the code
-shows it.
+and let the component structure emerge from what survives. Stop when new
+stressors stop producing new design changes. Two components that break
+under the same stressor are coupled, whether or not the code shows it. The
+absurd ones are there because polite ones only find the couplings you
+already suspected.
 
 They disagree in a useful way. The elevator says resilience is not free and
 asks who upstairs cares about this stressor. Residuality says your tidy
@@ -103,7 +105,8 @@ If it is, the agent climbs six rungs:
 3. Stress it               → 8-12 stressors, two of them absurd, no probabilities.
                              Stressors that break the same parts reveal hidden coupling.
 4. Price the options       → build, run and who pays, undo, what stays open.
-                             Surviving a stressor is a purchase. Name the price.
+                             Surviving a stressor is a purchase, not a default.
+                             Name the price rather than adding resilience everywhere.
 5. Cross-examine           → elevator pass: which stressors are worth paying for?
                              residuality pass: which price assumes a known future?
 6. Decide or defer         → "we give up X to get Y", flip conditions,
