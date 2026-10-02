@@ -51,6 +51,24 @@ asks who upstairs cares about this stressor. Residuality says your tidy
 price table assumes you know which future arrives. Rung 5 below runs that
 argument on every decision.
 
+Residuality terms you will see in commands and records:
+
+- **Stressor**: anything in the environment that could change or break the
+  system. Not a risk: no probability, treated as if it will happen.
+- **Residue**: what remains after a stressor hits. What survives, what
+  breaks, and what you would change to survive it.
+- **Attractor**: a state the business and system fall into under stress.
+  Stressors that lead to the same one show where the structure is fragile.
+- **Hyperliminal coupling**: coupling through the business, not the code.
+  Two independent components can both break when a key customer leaves.
+- **Incidence matrix**: stressors as rows, components as columns, a mark
+  where a stressor hits. Matching columns point at hidden coupling.
+- **Contagion trace**: how a failure spreads from the component a stressor
+  hits, along dependencies and information flows, to the ones coupled to it.
+
+Full vocabulary and procedure:
+[skills/turtleneck/references/residuality.md](skills/turtleneck/references/residuality.md#vocabulary).
+
 Neither author is involved in or endorses this project. Read their books.
 This repo only holds the working questions.
 
