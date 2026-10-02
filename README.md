@@ -35,8 +35,14 @@ The protocol pairs two bodies of work that pull in different directions.
 **The Architect Elevator** (Gregor Hohpe). Architects ride between the
 penthouse where business decisions happen and the engine room where systems
 run. A decision described on one floor is not a decision. Architecture is
-selling options, and options have a premium. Loose coupling has a price on
-both sides. New technology punishes bad habits. The deliverable is the
+selling options, and options have a premium. Here an option is a decision
+kept open for later, as in finance: the less certain the future, the more
+it is worth. The premium is what keeping it open costs now, such as an
+abstraction layer or a second deployment. Coupling has a price on both
+sides: loose coupling adds overhead and makes the flow harder to follow,
+tight coupling makes a change on one side propagate to the other. New
+technology punishes bad habits: it does not fix the habit that made the old
+system painful, so name the habit before you switch. The deliverable is the
 trade-offs, made explicit.
 
 **Residuality Theory** (Barry O'Reilly). The business environment is not a
